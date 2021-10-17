@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Legajo</th>
+                <th>Nombre</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for empleado in object_list %}
+                <tr>
+                    <td>{{ empleado.legajo }}</td>
+                    <td>{{ empleado.nombre }} {{ empleado.apellido }}</td>
+                    <td class="d-flex justify-content-end">
+                        <div class="wrap">
+                            <a href="{% url 'detalle-empleado' empleado.legajo %}" class="btn btn-primary">Ver</a>
+                            <a href="{% url 'borrar-empleado' empleado.legajo %}" class="btn btn-danger">Borrar</a>
+                            <a href="{% url 'editar-empleado' empleado.legajo %}" class="btn btn-secondary">Actualizar salario</a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

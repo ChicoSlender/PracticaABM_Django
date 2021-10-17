@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+
+        <div class="row">
+            <div class="col">
+                <a href="{% url 'empleados' %}" class="btn btn-danger w-100">Cancelar</a>
+            </div>
+            <div class="col offset-md-3">
+                <input type="submit" class="btn btn-success w-100" value="Guardar">
+            </div>
+        </div>
+    </form>
+{% endblock %}
